@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "name": "vamshika",
+      "email": "vamshikakb2006@gmail.com",
+      "password": "Chinni",
+      "role": "student",
+      "enrolledCourses": [
+        0
+      ],
+      "grades": {}
+    },
+    {
+      "name": "vamshika kb",
+      "email": "vamshika697@gmail.com",
+      "password": "Vamshika",
+      "role": "teacher",
+      "enrolledCourses": [],
+      "grades": {}
+    },
+    {
+      "name": "vamshika k",
+      "email": "vamshika59@gmail.com",
+      "password": "Chinni",
+      "role": "student",
+      "enrolledCourses": [],
+      "grades": {}
+    },
+    {
+      "name": "keerthana",
+      "email": "kb2006@gmail.com",
+      "password": "Chinni",
+      "role": "student",
+      "enrolledCourses": [
+        0
+      ],
+      "grades": {}
+    }
+  ],
+  "courses": [
+    {
+      "title": "dbms",
+      "desc": "database managment System",
+      "duration": "6 months",
+      "teacher": "vamshika kb",
+      "students": [
+        "vamshika",
+        "keerthana"
+      ]
+    }
+  ],
+  "assignments": [],
+  "forumPosts": []
+}

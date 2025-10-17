@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMS Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📘 Learning Management System</h1>
+    <button id="darkModeToggle">🌙Dark Mode</button>
+  </header>
+
+  <!-- Authentication Pages -->
+  <div id="auth-pages">
+    <div class="auth-container" id="registerPage">
+      <h2>Register</h2>
+      <input id="regName" type="text" placeholder="Full Name" />
+      <input id="regEmail" type="email" placeholder="Email" />
+      <input id="regPassword" type="password" placeholder="Password" />
+      <select id="regRole">
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+      </select>
+      <button onclick="registerUser()">Register</button>
+      <p>Already have an account? <span class="link" onclick="showLogin()">Login here</span></p>
+    </div>
+
+    <div class="auth-container" id="loginPage" style="display:none;">
+      <h2>Login</h2>
+      <input id="loginEmail" type="email" placeholder="Email" />
+      <input id="loginPassword" type="password" placeholder="Password" />
+      <select id="loginRole">
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+      </select>
+      <button onclick="loginUser()">Login</button>
+      <p>New user? <span class="link" onclick="showRegister()">Register here</span></p>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" style="display:none;">
+    <nav class="sidebar">
+      <h3 id="userName"></h3>
+      <button onclick="showDashboard()">🏠 Dashboard</button>
+      <button onclick="showCourses()">📚 Courses</button>
+      <button onclick="showAssignments()">📝 Assignments</button>
+      <button onclick="showGrades()">🎓 Grades</button>
+      <button onclick="showForum()">💬 Forum</button>
+      <!--<button onclick="logout()" class="logout-btn">🚪 Logout</button>-->
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+    </nav>
+
+    <main class="main-content">
+      <!-- Dashboard Section -->
+      <section id="dashboardSection" class="dashboard-section">
+        <h2>Dashboard Overview</h2>
+        <div class="stats">
+          <div class="card"><h3>Total Courses</h3><p id="totalCourses">0</p></div>
+          <div class="card"><h3>Assignments</h3><p id="pendingAssignments">0</p></div>
+          <div class="card"><h3>Notifications</h3><p id="totalNotifications">0</p></div>
+        </div>
+      </section>
+
+      <!-- Courses Section -->
+      <section id="coursesSection" class="dashboard-section" style="display:none;">
+        <h2>Courses</h2>
+        <div id="createCourseForm" class="form-container" style="display:none;">
+          <input id="courseTitle" placeholder="Course Title" />
+          <input id="courseDesc" placeholder="Description" />
+          <input id="courseDuration" placeholder="Duration" />
+          <button onclick="createCourse()">Add Course</button>
+        </div>
+        <div id="coursesContainer" class="cards-container"></div>
+      </section>
+
+      <!-- Assignments Section -->
+      <section id="assignmentsSection" class="dashboard-section" style="display:none;">
+        <h2>Assignments</h2>
+        <div id="createAssignmentForm" class="form-container" style="display:none;">
+          <input id="assignmentTitle" placeholder="Assignment Title" />
+          <input id="assignmentDesc" placeholder="Description" />
+          <button onclick="createAssignment()">Add Assignment</button>
+        </div>
+        <div id="assignmentsContainer" class="cards-container"></div>
+      </section>
+
+      <!-- Grades Section -->
+      <section id="gradesSection" class="dashboard-section" style="display:none;">
+        <h2>Your Grades</h2>
+        <div id="gradesContainer" class="cards-container"></div>
+      </section>
+
+      <!-- Forum Section -->
+      <section id="forumSection" class="dashboard-section" style="display:none;">
+        <h2>Forum</h2>
+        <textarea id="forumPost" placeholder="Write something..."></textarea>
+        <button onclick="addForumPost()">Post</button>
+        <div id="forumContainer" class="forum-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function showLogin(){ document.getElementById('registerPage').style.display='none'; document.getElementById('loginPage').style.display='block'; }
+    function showRegister(){ document.getElementById('loginPage').style.display='none'; document.getElementById('registerPage').style.display='block'; }
+    document.getElementById("logoutBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.clear(); // remove saved login info
+    alert("You have been logged out successfully.");
+    location.reload(); // refresh the page completely
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -117,4 +117,8 @@ app.post('/api/forum', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+=======
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+>>>>>>> 83d955f6b7d0fd25c9c2595924e51600b56f49be
